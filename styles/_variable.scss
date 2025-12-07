@@ -1,0 +1,604 @@
+// color base
+$base-white: #ffffff;
+$base-10: #f9f9f9;
+$base-15: #f4f4f4;
+$base-20: #efefef;
+$base-25: #e6e6e6;
+$base-30: #c7c7c7;
+$base-40: #858b93;
+$base-45: #4d5158;
+$base-50: #33383f;
+$base-55: #2c3137;
+$base-60: #272b30;
+$base-70: #212427;
+$base-80: #1a1d1f;
+$base-90: #111315;
+$base-black: #000000;
+// color primary
+$primary-10: #ecf4f1;
+$primary-20: #ccedde;
+$primary-30: #6adbae;
+$primary-40: #51d6a1;
+$primary-50: #1aaf74;
+$primary-60: #0ca166;
+$primary-70: #1d6e4f;
+$primary-80: #18563e;
+// color red
+$red-lighter: #ffe5e0;
+$red-light: #f96f6f;
+$red-default: #f34859;
+$red-dark: #c82d3d;
+$red-darker: #771d1d;
+// color green
+$green-lighter: #ecf4f1;
+$green-light: #69f8b7;
+$green-default: #1aaf74;
+$green-dark: #1d6e4f;
+$green-darker: #18563e;
+// color orange
+$orange-lighter: #fff1e2;
+$orange-light: #ffb56c;
+$orange-default: #ff9f41;
+$orange-dark: #e36301;
+$green-darker: #6c2f00;
+// color purple
+$purple-lighter: #f1dbff;
+$purple-light: #c682f3;
+$purple-default: #a43ee7;
+$purple-dark: #7b3ca4;
+$purple-darker: #4c2268;
+// color blue
+$blue-lighter: #dcf7ff;
+$blue-light: #93e5ff;
+$blue-default: #3fc2eb;
+$blue-dark: #1290b8;
+$blue-darker: #08495e;
+// color yellow
+$yellow-lighter: #fff7d7;
+$yellow-light: #ffd530;
+$yellow-default: #ffb700;
+$yellow-dark: #cc8100;
+$yellow-darker: #995200;
+// color teal
+$teal-lighter: #bff0f5;
+$teal-light: #5dc6d2;
+$teal-default: #1d9aaa;
+$teal-dark: #337c85;
+$teal-darker: #22565b;
+//color support
+$primary-5001: rgb(26 175 116 / 10%);
+$primary-5003: rgb(26 175 116 / 30%);
+$primary-5005: rgb(26 175 116 / 50%);
+$green-default-01: $primary-5001;
+$green-default-03: $primary-5003;
+$green-default-05: $primary-5005;
+$red-default-01: rgb(243 72 89 / 10%);
+$red-default-03: rgb(243 72 89 / 30%);
+$red-default-05: rgb(243 72 89 / 50%);
+$orange-default-01: rgb(255 159 65 / 10%);
+$orange-default-03: rgb(255 159 65 / 30%);
+$orange-default-05: rgb(255 159 65 / 50%);
+$purple-default-01: rgb(164 62 231 / 10%);
+$purple-default-03: rgb(164 62 231 / 30%);
+$purple-default-05: rgb(164 62 231 / 50%);
+$blue-default-01: rgb(63 194 235 /10%);
+$blue-default-03: rgb(63 194 235 /30%);
+$blue-default-05: rgb(63 194 235 /50%);
+$yellow-default-01: rgb(255 183 0 / 10%);
+$yellow-default-03: rgb(255 183 0 / 30%);
+$yellow-default-05: rgb(255 183 0 / 50%);
+$primary-11: #eef4f2;
+$primary-12: #e2f6ee;
+$primary-25: #afb3be;
+//color additional
+$base-white-03: rgb(255 255 255 /30%);
+$base-2006: rgb(244 244 244 / 60%);
+$base-4003: rgb(133 139 147 / 30%);
+$base-5003: rgb(51 56 63 /30%);
+$base-6006: rgb(39 43 48 / 60%);
+$base-8003: rgb(17 19 21 / 30%);
+$base-8008: rgb(17 19 21 /80%);
+//color fpts
+$fpt-blue: #0066b3;
+$fpt-orange: #f36f21;
+$fpt-green: #22b24c;
+
+$boxshadow: rgba(0, 0, 0, 0.12);
+
+:root {
+  --shadow: #{$boxshadow};
+  // surface
+  --surface-01: #{$primary-11};
+  --surface-02: #{$base-white};
+  --surface-03: #{$base-10};
+  --surface-04: #{$base-20};
+  --surface-tab-active: #{$base-25};
+  --surface-tab-inactive: #{$base-10};
+  // dropdown
+  --dropdown-text-title: #{$base-80};
+  --dropdown-text-subtitle: #{$base-40};
+  --dropdown-text-selected: #{$primary-50};
+  --dropdown-bg-default: #{$base-20};
+  --dropdown-bg-hover: #{$base-25};
+  --dropdown-bg-filter: #{$base-white};
+  // radio
+  --radio-bg-uncheck-default: #{$base-20};
+  --radio-bg-checked-default: #{$base-white};
+  --radio-bg-uncheck-disable: #{$base-20};
+  --radio-bg-checked-disable: #{$base-white};
+  --radio-border-default: #{$base-40};
+  --radio-border-active: #{$primary-50};
+  --radio-border-disable: #{$base-25};
+  //checkbox
+  --checkbox-icon-checked-active: #{$base-white};
+  --checkbox-icon-checked-disable: #{$base-white-03};
+  --checkbox-icon-indeterminate-active: #{$primary-50};
+  --checkbox-icon-indeterminate-disable: #{$base-30};
+  --checkbox-bg-uncheck-default: #{$base-20};
+  --checkbox-bg-checked-default: #{$primary-50};
+  --checkbox-bg-uncheck-disable: #{$base-2006};
+  --checkbox-bg-checked-disable: #{$primary-5003};
+  --checkbox-border-default: #{$base-40};
+  --checkbox-border-disable: #{$base-25};
+  //switch
+  --switch-bg-checked-default: #{$primary-50};
+  --switch-bg-uncheck-default: #{$base-40};
+  --switch-bg-checked-disable: #{$primary-5003};
+  --switch-bg-uncheck-disable: #{$base-5003};
+  --switch-thumb-default: #{$base-20};
+  --switch-thumb-disable: #{$base-white-03};
+  //range
+  --range-text-active: #{$base-60};
+  --range-text-inactive: #{$base-50};
+  --range-bg-active: #{$orange-default};
+  --range-bg-inactive: #{$base-20};
+  // badge
+  --badge-text-digit: #{$base-white};
+  --badge-label-primary: #{$primary-50};
+  --badge-label-secondary: #{$base-20};
+  --badge-label-orange: #{$orange-default};
+  --badge-label-green: #{$green-default};
+  --badge-label-blue: #{$blue-default};
+  --badge-label-purple: #{$purple-default};
+  --badge-label-yellow: #{$yellow-default};
+  --badge-label-red: #{$red-default};
+  --badge-bg-digit: #{$red-default};
+  --badge-bg-dot: #{$red-default};
+  --badge-bg-label-primary: #{$primary-5003};
+  --badge-bg-label-secondary: #{$base-4003};
+  --badge-bg-label-orange: #{$orange-default-03};
+  --badge-bg-label-green: #{$green-default-03};
+  --badge-bg-label-blue: #{$blue-default-03};
+  --badge-bg-label-purple: #{$purple-default-03};
+  --badge-bg-label-yellow: #{$yellow-default-03};
+  --badge-bg-label-red: #{$red-default-03};
+  //breadcrumb
+  --breadcrumb-previous: #{$base-80};
+  --breadcrumb-previous-hover: #{$base-50};
+  --breadcrumb-current: #{$base-80};
+  //chip
+  --chip-text-filter: #{$primary-70};
+  --chip-text-assist-default: #{$base-70};
+  --chip-text-assist-hover: #{$primary-50};
+  --chip-text-input: #{$base-80};
+  --chip-text-suggestion: #{$base-80};
+  --chip-bg-filter-default: #{$base-20};
+  --chip-bg-filter-default-hover: #{$base-white};
+  --chip-bg-assist-enable: #{$primary-5003};
+  --chip-bg-assist-enable-hover: #{$primary-5001};
+  --chip-bg-input-default: #{$base-20};
+  --chip-bg-input-hover: #{$base-10};
+  --chip-bg-suggestion-default: #{$base-20};
+  --chip-bg-suggestion-hover: #{$base-white};
+  --chip-border-filter: #{$primary-5003};
+  --chip-border-suggestion: #{$base-40};
+  //devider
+  --devider-solid: #{$base-4003};
+  --devider-dash: #{$base-40};
+  //grid icon
+  --grid-icon-text-change: #{$base-80};
+  --grid-icon-text-all-white: #{$base-20};
+  //tooltip
+  --tooltip-bg: #{$base-20};
+  --tooltip-hover-chart: #{$base-20};
+  --tooltip-text-heading: #{$base-90};
+  --tooltip-text-body: #{$base-60};
+  // toast
+  --toast-label: #{$base-white};
+  --toast-icon: #{$base-white};
+  --toast-bg-success: #{$green-default};
+  --toast-bg-error: #{$red-default};
+  --toast-bg-info: #{$base-50};
+  --toast-bg-alert: #{$orange-default};
+  //pagination
+  --pagination-active: #{$base-50};
+  --pagination-inactive: #{$base-4003};
+  //text field
+  --input-field-label-default: #{$base-50};
+  --input-field-label-disable: #{$base-8003};
+  --input-field-input-filled: #{$base-80};
+  --input-field-input-disable: #{$base-8003};
+  --input-field-placeholder-shade: #{$base-8003};
+  --input-field-placeholder-disable: #{$base-5003};
+  --input-field-bolder-default: #{$base-40};
+  --input-field-bolder-hover: #{$primary-50};
+  --input-field-bolder-press: #{$primary-50};
+  --input-field-bolder-error: #{$red-default};
+  --input-field-bolder-success: #{$green-default};
+  --input-field-bg-default: #{$base-20};
+  --input-field-bg-disable: #{$base-2006};
+  --input-field-bg-hover: #{$base-10};
+  --input-field-cursor-default: #{$primary-50};
+  --input-field-cursor-error: #{$red-default};
+  --input-field-helper-text-default: #{$base-40};
+  --input-field-helper-text-error: #{$red-default};
+  --input-field-helper-text-success: #{$green-default};
+  --input-field-helper-text-disable: #{$base-8003};
+  // scrollbar
+  --scroll-bg: #{$base-2006};
+  --scroll-border: #{$base-30};
+  //scrim
+  --scrim: #{$base-8008};
+  //title section
+  --title-section-on-card: #{$base-80};
+  --title-section-header: #{$base-80};
+  --title-section-secondary: #{$base-40};
+  --title-section-caption: #{$base-50};
+  // tab
+  --tab-text-active-default: #{$primary-50};
+  --tab-text-active-order: #{$base-white};
+  --tab-text-active-hover: #{$base-80};
+  --tab-text-active-inactive: #{$base-60};
+  --tab-bg-container: #{$primary-5001};
+  --tab-bg-order-buy-active: #{$green-default-03};
+  --tab-bg-sell-active: #{$red-default-03};
+  --tab-bg-order-inactive: #{$base-20};
+  --tab-bg-order-inactive-hover: #{$base-10};
+  --tab-indicator-active: #{$primary-50};
+  //  table
+  --table-text-header: #{$base-70};
+  --table-border: #{$base-30};
+  --table-bg-header-01: #{$base-20};
+  --table-bg-header-02: #{$base-25};
+  --table-bg-body-01: #{$base-10};
+  --table-bg-body-02: #{$base-white};
+  --table-bg-body-03: #{$base-20};
+  --table-bg-body-04: #{$base-10};
+  --table-bg-body-total: #{$base-15};
+  --table-bg-body-hover: #{$base-20};
+  //button
+  --button-text-icon-default-solid-button: #{$base-white};
+  --button-text-icon-hover-solid-button: #{$base-white};
+  --button-text-icon-disable-solid-button: #{$base-white};
+  --button-text-icon-default-text-button: #{$primary-50};
+  --button-text-icon-hover-text-button: #{$primary-40};
+  --button-text-icon-disable-text-button: #{$primary-5005};
+  --button-text-icon-default-solid-button-secondary: #{$base-60};
+  --button-text-icon-hover-solid-button-secondary: #{$base-60};
+  --button-text-icon-disable-solid-button-secondary: #{$base-8003};
+  --button-text-icon-default-text-button-secondary: #{$base-60};
+  --button-text-icon-hover-text-button-secondary: #{$base-40};
+  --button-text-icon-disable-text-button-secondary: #{$base-8003};
+  --button-bg-default-solid-button: #{$primary-50};
+  --button-bg-hover-solid-button: #{$primary-40};
+  --button-bg-disable-solid-button: #{$primary-5003};
+  --button-bg-default-secondary-button: #{$base-20};
+  --button-bg-hover-secondary-button: #{$base-30};
+  --button-bg-disable-secondary-button: #{$base-20};
+  --button-bg-default-sell-button: #{$red-default};
+  --button-bg-hover-sell-button: #{$red-light};
+  --button-bg-disable-sell-button: #{$red-default-03};
+  --button-icon-button-inactive-default: #{$base-40};
+  --button-icon-button-inactive-hover: #{$base-30};
+  --button-icon-button-inactive-disable: #{$base-white-03};
+  --button-icon-button-active-default: #{$primary-50};
+  --button-icon-button-active-hover: #{$primary-40};
+  --button-icon-button-active-disable: #{$primary-5003};
+  --button-icon-button-bg: #{$base-4003};
+  //segment tab
+  --segment-tab-text-active: #{$base-white};
+  --segment-tab-text-inactive: #{$base-40};
+  --segment-tab-text-inactive-hover: #{$primary-50};
+  --segment-tab-bg1-active-default: #{$primary-50};
+  --segment-tab-bg1-inactive: #{$base-10};
+  --segment-tab-bg2-active-default: #{$primary-12};
+  --segment-tab-bg2-inactive: #{$base-white};
+  //pin
+  --pin-text-default: #{$base-60};
+  --pin-text-disable: #{$base-8003};
+  --pin-bg-default: #{$base-20};
+  --pin-bg-active: #{$primary-5005};
+  --pin-bg-error: #{$red-default-03};
+  --pin-bg-disable: #{$base-2006};
+  --pin-border-active: #{$primary-50};
+  --pin-border-border: #{$primary-50};
+  --pin-border-error: #{$red-default};
+  --pin-border-default: #{$base-40};
+  --pin-border-disable: #{$base-4003};
+  // chart
+  --chart-data-series-1: #{$primary-50};
+  --chart-data-series-2: #{$green-light};
+  --chart-data-series-3: #{$green-default};
+  --chart-data-series-4: #{$green-dark};
+  --chart-data-series-5: #{$red-light};
+  --chart-data-series-6: #{$red-default};
+  --chart-data-series-7: #{$red-dark};
+  --chart-data-series-8: #{$orange-light};
+  --chart-data-series-9: #{$purple-light};
+  --chart-data-series-10: #{$teal-light};
+  --chart-data-series-11: #{$base-40};
+  --chart-data-series-12: #{$green-default-03};
+  --chart-data-series-13: #{$red-default-03};
+  --chart-text-axis: #{$base-40};
+  --chart-text-lengend-primary: #{$base-80};
+  --chart-text-lengend-secondary: #{$base-40};
+  --chart-dot-border: #{$base-white};
+  --chart-dot-bg-primary: #{$primary-50};
+  --chart-dot-bg-increase: #{$green-default};
+  --chart-dot-bg-reduce: #{$red-default};
+  --chart-value-text: #{$primary-50};
+  --chart-value-bg: #{$base-white};
+  --chart-value-border: #{$primary-50};
+  //index
+  --index-text-equal: #{$orange-default};
+  --index-text-reduce: #{$red-default};
+  --index-text-increase: #{$green-default};
+  --index-text-ceil: #{$purple-default};
+  --index-text-floor: #{$blue-default};
+  --index-text-white: #{$base-80};
+  --index-bg-equal: #{$orange-default-03};
+  --index-bg-reduce: #{$red-default-03};
+  --index-bg-increase: #{$green-default-03};
+  --index-bg-ceil: #{$purple-default-03};
+  --index-bg-floor: #{$blue-default-03};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // surface
+    --surface-01: #{$base-90};
+    --surface-02: #{$base-80};
+    --surface-03: #{$base-70};
+    --surface-04: #{$base-60};
+    --surface-tab-active: #{$base-60};
+    --surface-tab-inactive: #{$base-90};
+    // dropdown
+    --dropdown-text-title: #{$base-20};
+    --dropdown-text-subtitle: #{$base-40};
+    --dropdown-text-selected: #{$primary-50};
+    --dropdown-bg-default: #{$base-70};
+    --dropdown-bg-hover: #{$base-55};
+    --dropdown-bg-filter: #{$base-70};
+    // radio
+    --radio-bg-uncheck-default: #{$base-50};
+    --radio-bg-checked-default: #{$base-white};
+    --radio-bg-uncheck-disable: #{$base-5003};
+    --radio-bg-checked-disable: #{$base-40};
+    --radio-border-default: #{$base-40};
+    --radio-border-active: #{$primary-50};
+    --radio-border-disable: #{$base-60};
+    //checkbox
+    --checkbox-icon-checked-active: #{$base-white};
+    --checkbox-icon-checked-disable: #{$base-white-03};
+    --checkbox-icon-indeterminate-active: #{$primary-50};
+    --checkbox-icon-indeterminate-disable: #{$base-50};
+    --checkbox-bg-uncheck-default: #{$base-50};
+    --checkbox-bg-checked-default: #{$primary-50};
+    --checkbox-bg-uncheck-disbale: #{$base-5003};
+    --checkbox-bg-checked-disbale: #{$primary-5003};
+    --checkbox-border-default: #{$base-40};
+    --checkbox-border-disable: #{$base-55};
+    //switch
+    --switch-bg-checked-default: #{$primary-50};
+    --switch-bg-uncheck-default: #{$base-40};
+    --switch-bg-checked-disable: #{$primary-5001};
+    --switch-bg-uncheck-disable: #{$base-5003};
+    --switch-thumb-default: #{$base-20};
+    --switch-thumb-disable: #{$base-white-03};
+    //range
+    --range-text-active: #{$base-20};
+    --range-text-inactive: #{$base-40};
+    --range-bg-active: #{$orange-default};
+    --range-bg-inactive: #{$base-90};
+    // badge
+    --badge-text-digit: #{$base-white};
+    --badge-label-primary: #{$primary-50};
+    --badge-label-secondary: #{$base-20};
+    --badge-label-orange: #{$orange-default};
+    --badge-label-green: #{$green-default};
+    --badge-label-blue: #{$blue-default};
+    --badge-label-purple: #{$purple-default};
+    --badge-label-yellow: #{$yellow-default};
+    --badge-label-red: #{$red-default};
+    --badge-bg-digit: #{$red-default};
+    --badge-bg-dot: #{$red-default};
+    --badge-bg-label-primary: #{$primary-5003};
+    --badge-bg-label-secondary: #{$base-4003};
+    --badge-bg-label-orange: #{$orange-default-03};
+    --badge-bg-label-green: #{$green-default-03};
+    --badge-bg-label-blue: #{$blue-default-03};
+    --badge-bg-label-purple: #{$purple-default-03};
+    --badge-bg-label-yellow: #{$yellow-default-03};
+    --badge-bg-label-red: #{$red-default-03};
+    //breadcrumb
+    --breadcrumb-previous: #{$base-20};
+    --breadcrumb-previous-hover: #{$base-40};
+    --breadcrumb-current: #{$base-20};
+    //chip
+    --chip-text-filter: #{$primary-20};
+    --chip-text-assist-default: #{$base-20};
+    --chip-text-assist-hover: #{$primary-50};
+    --chip-text-input: #{$base-10};
+    --chip-text-suggestion: #{$base-10};
+    --chip-bg-filter-default: #{$base-70};
+    --chip-bg-filter-default-hover: #{$base-60};
+    --chip-bg-assist-enable: #{$primary-5003};
+    --chip-bg-assist-enable-hover: #{$primary-5005};
+    --chip-bg-input-default: #{$base-70};
+    --chip-bg-input-hover: #{$base-60};
+    --chip-bg-suggestion-default: #{$base-70};
+    --chip-bg-suggestion-hover: #{$base-60};
+    --chip-border-filter: #{$primary-5003};
+    --chip-border-suggestion: #{$base-40};
+    //devider
+    --devider-solid: #{$base-4003};
+    --devider-dash: #{$base-40};
+    //grid icon
+    --grid-icon-text-change: #{$base-20};
+    --grid-icon-text-all-white: #{$base-20};
+    //tooltip
+    --tooltip-bg: #{$base-50};
+    --tooltip-hover-chart: #{$base-60};
+    --tooltip-text-heading: #{$base-white};
+    --tooltip-text-body: #{$base-30};
+    // toast
+    --toast-label: #{$base-white};
+    --toast-icon: #{$base-white};
+    --toast-bg-success: #{$green-default};
+    --toast-bg-error: #{$red-default};
+    --toast-bg-info: #{$base-50};
+    --toast-bg-alert: #{$orange-default};
+    //pagination
+    --pagination-active: #{$base-20};
+    --pagination-inactive: #{$base-4003};
+    //text field
+    --input-field-label-default: #{$base-30};
+    --input-field-label-disable: #{$base-white-03};
+    --input-field-input-filled: #{$base-20};
+    --input-field-input-disable: #{$base-white-03};
+    --input-field-placeholder-shade: #{$base-white-03};
+    --input-field-placeholder-disable: #{$base-white-03};
+    --input-field-bolder-default: #{$base-50};
+    --input-field-bolder-hover: #{$primary-50};
+    --input-field-bolder-press: #{$primary-50};
+    --input-field-bolder-error: #{$red-default};
+    --input-field-bolder-success: #{$green-default};
+    --input-field-bg-default: #{$base-55};
+    --input-field-bg-disable: #{$base-70};
+    --input-field-bg-hover: #{$base-50};
+    --input-field-cursor-default: #{$primary-50};
+    --input-field-cursor-error: #{$red-default};
+    --input-field-helper-text-default: #{$base-40};
+    --input-field-helper-text-error: #{$red-default};
+    --input-field-helper-text-success: #{$green-default};
+    --input-field-helper-text-disable: #{$base-white-03};
+    // scrollbar
+    --scroll-bg: #{$base-8003};
+    --scroll-border: #{$base-45};
+    //scrim
+    --scrim: #{$base-8008};
+    //title section
+    --title-section-on-card: #{$base-20};
+    --title-section-header: #{$base-20};
+    --title-section-secondary: #{$base-40};
+    --title-section-caption: #{$base-30};
+    // tab
+    --tab-text-active-default: #{$primary-50};
+    --tab-text-active-order: #{$base-white};
+    --tab-text-active-hover: #{$base-white};
+    --tab-text-active-inactive: #{$base-40};
+    --tab-bg-container: #{$base-60};
+    --tab-bg-order-buy-active: #{$green-default-03};
+    --tab-bg-sell-active: #{$red-default-03};
+    --tab-bg-order-inactive: #{$base-60};
+    --tab-bg-order-inactive-hover: #{$base-50};
+    --tab-indicator-active: #{$primary-50};
+    //  table
+    --table-text-header: #{$base-20};
+    --table-border: #{$base-45};
+    --table-bg-header-01: #{$base-55};
+    --table-bg-header-02: #{$base-50};
+    --table-bg-body-01: #{$base-80};
+    --table-bg-body-02: #{$base-70};
+    --table-bg-body-03: #{$base-60};
+    --table-bg-body-04: #{$base-50};
+    --table-bg-body-total: #{$base-60};
+    --table-bg-body-hover: #{$base-45};
+    //button
+    --button-text-icon-default-solid-button: #{$base-white};
+    --button-text-icon-hover-solid-button: #{$base-white};
+    --button-text-icon-disable-solid-button: #{$base-white-03};
+    --button-text-icon-default-text-button: #{$primary-50};
+    --button-text-icon-hover-text-button: #{$primary-40};
+    --button-text-icon-disable-text-button: #{$primary-5003};
+    --button-text-icon-default-solid-button-secondary: #{$base-white};
+    --button-text-icon-hover-solid-button-secondary: #{$base-white};
+    --button-text-icon-disable-solid-button-secondary: #{$base-white-03};
+    --button-text-icon-default-text-button-secondary: #{$base-40};
+    --button-text-icon-hover-text-button-secondary: #{$base-30};
+    --button-text-icon-disable-text-button-secondary: #{$base-white-03};
+    --button-bg-default-solid-button: #{$primary-50};
+    --button-bg-hover-solid-button: #{$primary-40};
+    --button-bg-disable-solid-button: #{$primary-5003};
+    --button-bg-default-secondary-button: #{$base-50};
+    --button-bg-hover-secondary-button: #{$base-40};
+    --button-bg-disable-secondary-button: #{$base-5003};
+    --button-bg-default-sell-button: #{$red-default};
+    --button-bg-hover-sell-button: #{$red-light};
+    --button-bg-disable-sell-button: #{$red-default-03};
+
+    --button-icon-button-inactive-default: #{$base-40};
+    --button-icon-button-inactive-hover: #{$base-30};
+    --button-icon-button-inactive-disable: #{$base-white-03};
+    --button-icon-button-active-default: #{$primary-50};
+    --button-icon-button-active-hover: #{$primary-40};
+    --button-icon-button-active-disable: #{$primary-5003};
+    --button-icon-button-bg: #{$base-4003};
+    //segment tab
+    --segment-tab-text-active: #{$base-white};
+    --segment-tab-text-inactive: #{$base-40};
+    --segment-tab-text-inactive-hover: #{$primary-50};
+    --segment-tab-bg1-active-default: #{$primary-50};
+    --segment-tab-bg1-inactive: #{$base-60};
+    --segment-tab-bg2-active-default: #{$base-60};
+    --segment-tab-bg2-inactive: #{$base-70};
+    //pin
+    --pin-text-default: #{$base-white};
+    --pin-text-disable: #{$base-white-03};
+    --pin-bg-default: #{$base-60};
+    --pin-bg-active: #{$primary-5005};
+    --pin-bg-error: #{$red-default-03};
+    --pin-bg-disable: #{$base-5003};
+    --pin-border-active: #{$primary-50};
+    --pin-border-border: #{$primary-50};
+    --pin-border-error: #{$red-default};
+    --pin-border-default: #{$base-40};
+    --pin-border-disable: #{$base-4003};
+    // chart
+    --chart-data-series-1: #{$primary-50};
+    --chart-data-series-2: #{$green-light};
+    --chart-data-series-3: #{$green-default};
+    --chart-data-series-4: #{$green-dark};
+    --chart-data-series-5: #{$red-light};
+    --chart-data-series-6: #{$red-default};
+    --chart-data-series-7: #{$red-dark};
+    --chart-data-series-8: #{$orange-light};
+    --chart-data-series-9: #{$purple-light};
+    --chart-data-series-10: #{$teal-light};
+    --chart-data-series-11: #{$base-40};
+    --chart-data-series-12: #{$green-default-03};
+    --chart-data-series-13: #{$red-default-03};
+    --chart-text-axis: #{$base-40};
+    --chart-text-lengend-primary: #{$base-20};
+    --chart-text-lengend-secondary: #{$base-40};
+    --chart-dot-border: #{$base-white};
+    --chart-dot-bg-primary: #{$primary-50};
+    --chart-dot-bg-increase: #{$green-default};
+    --chart-dot-bg-reduce: #{$red-default};
+    --chart-value-text: #{$primary-50};
+    --chart-value-bg: #{$base-90};
+    --chart-value-border: #{$primary-50};
+    //index
+    --index-text-equal: #{$orange-default};
+    --index-text-reduce: #{$red-default};
+    --index-text-increase: #{$green-default};
+    --index-text-ceil: #{$purple-default};
+    --index-text-floor: #{$blue-default};
+    --index-text-white: #{$base-20};
+    --index-bg-equal: #{$orange-default-03};
+    --index-bg-reduce: #{$red-default-03};
+    --index-bg-increase: #{$green-default-03};
+    --index-bg-ceil: #{$purple-default-03};
+    --index-bg-floor: #{$blue-default-03};
+  }
+}
