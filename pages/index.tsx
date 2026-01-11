@@ -1,18 +1,6 @@
-import {
-  DSBadge,
-  DSButton,
-  DSCheckBox,
-  DSRadio,
-  DSSelect,
-  DSSwitch,
-  DSTextInput,
-  DSToast,
-} from "@/declare";
-import { Box, } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { AcUnitSharp } from "@mui/icons-material";
-import DSInputNumber from "@/components/Form/DSInputNumber";
+import { AutoSizer, Column, Table } from "react-virtualized";
+import "react-virtualized/styles.css";
 
 type OtpInputProps = {
   value: string; // chuỗi OTP, ví dụ "123456"
@@ -238,100 +226,199 @@ type FormValues = {
   otp: string;
 };
 
-const arr = [
-  {
-    label: "Ten",
-    id: "1",
-    bagde: {
-      label: "heh",
-      active: true,
-    },
-  },
-  {
-    label: "Ten 2",
-    id: "2",
-  },
-  {
-    label: "Ten 3",
-    id: "3",
-  },
-];
+const generateRandomData = () => {
+  const firstNames = [
+    "Nguyen",
+    "Tran",
+    "Le",
+    "Pham",
+    "Ho",
+    "Vu",
+    "Dang",
+    "Bui",
+    "Do",
+    "H",
+  ];
+  const lastNames = [
+    "An",
+    "Binh",
+    "Chi",
+    "Dung",
+    "Giang",
+    "Hai",
+    "Khoa",
+    "Lam",
+    "Minh",
+    "Nhan",
+  ];
+  const departments = ["IT", "HR", "Marketing", "Sales", "Finance"];
+  const positions = [
+    "Manager",
+    "Developer",
+    "Designer",
+    "Analyst",
+    "Consultant",
+  ];
+
+  const data = [];
+  for (let i = 1; i <= 100; i++) {
+    const record = {
+      id: i.toString(),
+      name: `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${
+        lastNames[Math.floor(Math.random() * lastNames.length)]
+      }`,
+      email: `user${i}@company.com`,
+      department: departments[Math.floor(Math.random() * departments.length)],
+      position: positions[Math.floor(Math.random() * positions.length)],
+      salary: Math.floor(Math.random() * 50000) + 30000,
+      keyValue: `key_${i}:value_${Math.floor(Math.random() * 1000)}`,
+    };
+    data.push(record);
+  }
+  return data;
+};
+
+const arr = generateRandomData();
 
 // Component demo dùng để mount/unmount OtpInput bằng nút bấm
 export default function Home() {
-  const [state, setState] = useState(false);
-  const { control, handleSubmit } = useForm<FormValues>({
-    defaultValues: { otp: "" },
-    mode: "onSubmit",
-  });
+  const [isState, setIsState] = useState(false);
+  useEffect(() => {
+    setIsState(true);
+  }, []);
 
-  const onSubmit = (data: FormValues) => {
-    console.log("Submit:", data.otp);
-    // gọi API verify ở đây
-  };
+  if (!isState) return null;
 
   return (
-    <Box
-      sx={{
-        background: "#000",
-        p: 7,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: 4,
-      }}
-    >
-      <button onClick={() => setState(!state)}>click me</button>
+    <div style={{ width: "100%", height: "400px" }}>
+      <AutoSizer>
+        {({ height, width }) => {
+          console.log({ width, height });
 
-      <DSCheckBox size="large" disabled checked />
-      <DSCheckBox size="medium" disabled />
-      <DSCheckBox size="small" />
-      <DSSwitch size="large" disabled checked />
-      <DSSwitch size="medium" disabled />
-      <DSSwitch size="small" />
-      <DSRadio size="large" disabled checked />
-      <DSRadio size="large" checked />
-      <DSRadio size="medium" disabled />
-      <DSRadio size="small" label={<p>hehhe</p>} />
-      <DSInputNumber />
-
-      {state && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            name="otp"
-            control={control}
-            rules={{
-              validate: (value) => {
-                if (value !== "123456") return "Sai mã OTP";
-                return true;
-              },
-            }}
-            render={({ field, fieldState }) => (
-              <>
-                <OtpInput
-                  value={field.value || ""}
-                  onChange={field.onChange}
-                  error={!!fieldState.error}
+          return (
+            <>
+              <div style={{ width: width, height: "40px", paddingRight: 8 }}>
+                <table
+                  style={{
+                    width: "100%",
+                    borderCollapse: "collapse",
+                    borderSpacing: 0,
+                  }}
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        rowSpan={2}
+                        style={{ width: "16.6%", background: "red" }}
+                      >
+                        ID
+                      </th>
+                      <th colSpan={2}>User Name</th>
+                      <th
+                        rowSpan={2}
+                        style={{ width: "16.6%", background: "orange" }}
+                      >
+                        Department
+                      </th>
+                      <th
+                        rowSpan={2}
+                        style={{ width: "16.6%", background: "purple" }}
+                      >
+                        Position
+                      </th>
+                      <th
+                        rowSpan={2}
+                        style={{ width: "16.6%", background: "yellow" }}
+                      >
+                        KeyValue
+                      </th>
+                    </tr>
+                    <tr>
+                      <th style={{ width: "16.6%", background: "blue" }}>
+                        Name
+                      </th>
+                      <th style={{ width: "16.6%", background: "green" }}>
+                        Email
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <Table
+                width={width}
+                height={height}
+                rowCount={arr.length}
+                rowHeight={40}
+                headerHeight={0}
+                disableHeader={true}
+                rowGetter={({ index }) => arr[index]}
+                rowStyle={
+                  {
+                    // paddingRight: 0
+                  }
+                }
+                headerStyle={{ margin: 0 }}
+                style={{ margin: 0 }}
+              >
+                <Column
+                  label="ID"
+                  dataKey="id"
+                  width={width * 0.166}
+                  headerStyle={{ color: "white", margin: 0 }}
+                  style={{ background: "#cecece", margin: 0 }}
+                  flexShrink={1}
+                  flexGrow={0}
                 />
-                {fieldState.error && (
-                  <p style={{ color: "red", marginTop: 4 }}>
-                    {fieldState.error.message}
-                  </p>
-                )}
-              </>
-            )}
-          />
-
-          <DSButton
-            size="xlarge"
-            type="submit"
-            variant="contained"
-            startIcon={<p>X</p>}
-          >
-            Xác nhận
-          </DSButton>
-        </form>
-      )}
-    </Box>
+                <Column
+                  label="Name"
+                  dataKey="name"
+                  width={width * 0.166}
+                  flexShrink={1}
+                  flexGrow={0}
+                  style={{ background: "pink", margin: 0 }}
+                  headerStyle={{ color: "white", margin: 0 }}
+                />
+                <Column
+                  label="Email"
+                  dataKey="email"
+                  width={width * 0.166}
+                  flexShrink={1}
+                  flexGrow={0}
+                  style={{ background: "#e0e0e0", margin: 0 }}
+                  headerStyle={{ color: "white", margin: 0 }}
+                />
+                <Column
+                  label="Department"
+                  dataKey="department"
+                  width={width * 0.166}
+                  flexShrink={1}
+                  flexGrow={0}
+                  style={{ background: "#f0f0f0", margin: 0 }}
+                  headerStyle={{ color: "white", margin: 0 }}
+                />
+                <Column
+                  label="Position"
+                  dataKey="position"
+                  width={width * 0.166}
+                  flexShrink={1}
+                  flexGrow={0}
+                  style={{ background: "#d0d0d0", margin: 0 }}
+                  headerStyle={{ color: "white", margin: 0 }}
+                />
+                <Column
+                  label="KeyValue"
+                  dataKey="keyValue"
+                  width={width * 0.166}
+                  flexShrink={1}
+                  flexGrow={0}
+                  style={{ background: "#ffffcc", margin: 0 }}
+                  headerStyle={{ color: "black", margin: 0 }}
+                />
+              </Table>
+            </>
+          );
+        }}
+      </AutoSizer>
+    </div>
   );
 }

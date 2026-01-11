@@ -3,7 +3,8 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  color: white;
+  overflow: hidden;
 }
 
 * {
@@ -19,4 +20,21 @@ a {
 
 p {
   margin: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #efefef;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  // background: var(--priceboard-bg);
 }

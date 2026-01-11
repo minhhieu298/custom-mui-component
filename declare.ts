@@ -133,3 +133,41 @@ interface DSInputNumberProps {
 }
 
 export declare const DSInputNumber: React.ForwardRefExoticComponent<DSInputNumberProps & React.RefAttributes<HTMLInputElement>>;
+
+// ============== DSAutoComplete ==============
+type ExtendedAutoCompleteSize = "small" | "medium" | "large";
+
+type AutoCompleteOptionData = {
+    label: string;
+    id: string;
+};
+
+interface DSAutoCompleteProps<
+    T extends AutoCompleteOptionData,
+    Multiple extends boolean | undefined = false,
+    DisableClearable extends boolean | undefined = false,
+    FreeSolo extends boolean | undefined = false
+> {
+    size?: ExtendedAutoCompleteSize;
+    placeholder?: string;
+    options: T[];
+    responsiveSize?: ResponsiveSize<ExtendedAutoCompleteSize>;
+    error?: boolean;
+    helperText?: string;
+    value?: Multiple extends true ? T[] : T | null;
+    onChange?: (event: React.SyntheticEvent, value: Multiple extends true ? T[] : T | null) => void;
+    multiple?: Multiple;
+    disableClearable?: DisableClearable;
+    freeSolo?: FreeSolo;
+    disabled?: boolean;
+    sx?: SxProps<Theme>;
+}
+
+export declare const DSAutoComplete: <
+    T extends AutoCompleteOptionData,
+    Multiple extends boolean | undefined = false,
+    DisableClearable extends boolean | undefined = false,
+    FreeSolo extends boolean | undefined = false
+>(
+    props: DSAutoCompleteProps<T, Multiple, DisableClearable, FreeSolo> & React.RefAttributes<HTMLDivElement>
+) => React.ReactElement;
