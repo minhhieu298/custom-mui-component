@@ -22,9 +22,8 @@ const ListData = ({
 
   // Function to load more rows
   const loadMoreRows = ({ startIndex, stopIndex }: { startIndex: number; stopIndex: number }) => {
-    console.log('loadMoreRows called', { loading, hasMore, startIndex, stopIndex });
     if (!loading && hasMore) {
-      console.log('Actually loading more rows...');
+      console.log('Loading more rows...', { startIndex, stopIndex });
       loadMoreData();
     }
     return Promise.resolve();
